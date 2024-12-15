@@ -111,13 +111,11 @@
                                     <div class="form-group">
                                         <label for="user_rolecreate">Role</label>
                                         <div class="roles-container" id="user_rolecreate">
-                                            <div th:each="role : ${availableRoles}" class="form-check form-control">
-                                                <label>
-                                                    <input class="form-check-input position-static" type="checkbox" th:id="'idrolecreate'+${role.id}" th:field="*{roles}" th:value="${role.id}"
-                                                           th:checked="false" />
-                                                    <span th:text="${role.name.substring(5)}"></span>
-                                                </label>
-                                            </div>
+                                            <label th:each="role : ${availableRoles}" class="form-control mb-0">
+                                                <input class="form-check-input" type="checkbox" th:id="'idrolecreate'+${role.id}"
+                                                       th:field="*{roles}" th:value="${role.id}" th:checked="false" />
+                                                <span th:text="${role.name.substring(5)}"></span>
+                                            </label>
                                         </div>
                                     </div>
 
@@ -162,7 +160,7 @@
                                         <td>
                                             <button class="btn btn-sm btn-success"
                                                     th:attr="data-id=*{id}, data-name=*{name}, data-lastName=*{lastName}, data-age=*{age}, data-username=*{username}, data-roles=*{#strings.toString(roles)}"
-                                                    onclick="editUser (this.getAttribute('data-id'), this.getAttribute('data-name'), this.getAttribute('data-lastName'), this.getAttribute('data-age'), this.getAttribute('data-username'), this.getAttribute('data-roles'))">Edit</button>
+                                                    onclick="editUser(this.getAttribute('data-id'), this.getAttribute('data-name'), this.getAttribute('data-lastName'), this.getAttribute('data-age'), this.getAttribute('data-username'), this.getAttribute('data-roles'))">Edit</button>
                                         </td>
                                         <td>
                                             <button class="btn btn-sm btn-danger"
@@ -222,24 +220,14 @@
                     <input type="password" class="form-control" id="modal_password" th:field="*{password}" placeholder="Enter password">
                 </div>
 
-<!--                <div class="form-group">-->
-<!--                    <label for="modal_role">Role</label>-->
-<!--                    <select class="form-control" id="modal_role">-->
-<!--                        <option value="Admin">Admin</option>-->
-<!--                        <option value="User">User</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-
                 <div class="form-group">
                     <label for="user_role">Role</label>
                     <div class="roles-container" id="user_role">
-                        <div th:each="role : ${availableRoles}" class="form-check form-control">
-                            <label>
-                                <input class="form-check-input position-static" type="checkbox" th:id="'idrole'+${role.id}" th:field="*{roles}" th:value="${role.id}"
-                                       th:checked="${userModel.roles.contains(role)}" />
+                            <label th:each="role : ${availableRoles}" class="form-control mb-0">
+                                <input class="form-check-input" type="checkbox" th:id="'idrole'+${role.id}"
+                                       th:field="*{roles}" th:value="${role.id}" th:checked="${userModel.roles.contains(role)}" />
                                 <span th:text="${role.name.substring(5)}"></span>
                             </label>
-                        </div>
                     </div>
                 </div>
 
@@ -276,7 +264,7 @@
                 </div>
                 <div class="form-group">
                     <label for="delete_last_name">Last Name</label>
-                    <input type="text" class="form-control" id="delete_last_name"disabled>
+                    <input type="text" class="form-control" id="delete_last_name" disabled>
                 </div>
                 <div class="form-group">
                     <label for="delete_age">Age</label>
@@ -290,13 +278,11 @@
                 <div class="form-group">
                     <label for="user_roled">Role</label>
                     <div class="roles-container" id="user_roled">
-                        <div th:each="role : ${availableRoles}" class="form-check form-control">
-                            <label>
-                                <input class="form-check-input position-static" disabled type="checkbox" th:id="'idroled'+${role.id}" th:field="*{roles}" th:value="${role.id}"
-                                       th:checked="${userModel.roles.contains(role)}" />
-                                <span th:text="${role.name.substring(5)}"></span>
-                            </label>
-                        </div>
+                        <label th:each="role : ${availableRoles}" class="form-control mb-0">
+                            <input class="form-check-input" disabled type="checkbox" th:id="'idroled'+${role.id}"
+                                   th:field="*{roles}" th:value="${role.id}" th:checked="${userModel.roles.contains(role)}" />
+                            <span th:text="${role.name.substring(5)}"></span>
+                        </label>
                     </div>
                 </div>
 
@@ -356,13 +342,11 @@
                 <div class="form-group">
                     <label for="erruser_role">Role</label>
                     <div class="roles-container" id="erruser_role">
-                        <div th:each="role : ${availableRoles}" class="form-check form-control">
-                            <label>
-                                <input class="form-check-input position-static" type="checkbox" th:id="'idrole'+${role.id}" th:field="*{roles}" th:value="${role.id}"
-                                       th:checked="${userModel.roles.contains(role)}" />
-                                <span th:text="${role.name.substring(5)}"></span>
-                            </label>
-                        </div>
+                        <label th:each="role : ${availableRoles}" class="form-control mb-0">
+                            <input class="form-check-input" type="checkbox" th:id="'idrole'+${role.id}" th:field="*{roles}" th:value="${role.id}"
+                                   th:checked="${userModel.roles.contains(role)}" />
+                            <span th:text="${role.name.substring(5)}"></span>
+                        </label>
                     </div>
                 </div>
 
